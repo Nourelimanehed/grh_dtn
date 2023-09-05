@@ -16,7 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import *
+from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework import routers
+from django.urls import path, include  
+from django.views.decorators.csrf import csrf_exempt  
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('employes/', employesListView.as_view(), name='employes_list'),
+    # Add other URL patterns for user creation, authentication, etc.
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = format_suffix_patterns(urlpatterns)
+
+
