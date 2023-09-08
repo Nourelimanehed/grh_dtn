@@ -26,7 +26,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('employes/', employesListView.as_view(), name='employes_list'),
+    #path('employes/', employesListView.as_view(), name='employes_list'),
     # Add other URL patterns for user creation, authentication, etc.
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns = format_suffix_patterns(urlpatterns)
